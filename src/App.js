@@ -9,14 +9,11 @@ function App() {
 
   setInterval(() => {
       setTime(getTimeToDueDate())
-  }, 100);
+  }, 500);
 
   return (
     <div className="App">
       <div className="App-box">
-        <p>
-          
-        </p>
         <a>
           <a className="big-text">
             {DateDiff.inDays(time)}
