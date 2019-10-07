@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import './App.css';
 
 var dueDate = new Date(2019, 10, 28, 12);
@@ -7,9 +7,12 @@ function App() {
 
   const [time, setTime] = useState(getTimeToDueDate())
 
-  setInterval(() => {
+  useEffect(() => {
+    const interval = setInterval(() => {
       setTime(getTimeToDueDate())
-  }, 500);
+    }, 500);
+    return () => clearInterval(interval);
+  }, []);
 
   return (
     <div className="App">
