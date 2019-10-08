@@ -1,0 +1,31 @@
+@import url(https://fonts.googleapis.com/css?family=Comic+Sans+MS);
+
+.box {
+  display: flex;
+  height: 100%;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-family: "Comic Sans MS", "Chalkboard SE", "Comic Neue", sans-serif;
+}
+
+.App-link {
+  color: #09d3ac;
+}
+
+.beer-big-text {
+  margin: 0;
+  font-size: calc(10px + 5vmin);
+  width: calc((10px + 5vmin) * 4.5);
+}
+
+.beer-small-text {
+  margin: 0;
+  font-size: calc(10px + 2vmin);
+}
+
+.beer-annotation-text {
+  margin-left: 10px;
+  font-size: calc(10px + 0.5vmin);
+}

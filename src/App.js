@@ -3,6 +3,7 @@ import Countdown from "./countdown/Countdown";
 import "./App.css";
 import MqttTile from "./mqttTile/MqttTile";
 import mqtt from "mqtt";
+import BeerCountdown from "./beer-timer/Beercountdown";
 
 const client = mqtt.connect("mqtts://antarktis.flyktig.no:4200");
 
@@ -37,6 +38,7 @@ function App() {
         }}
         name="pressure-tile"
       />
+      <BeerCountdown />
     </div>
   );
 }

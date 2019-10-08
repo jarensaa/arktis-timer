@@ -3,12 +3,25 @@
   min-height: 100vh;
   width: 100vw;
   display: grid;
-  grid-template-columns: 65vw 35vw;
-  grid-template-rows: repeat(3, 1fr);
-  grid-template-areas:
-    "countdown temperature"
-    "countdown humidity"
-    "countdown pressure";
+}
+
+@media only screen and (min-width: 1000px) {
+  .App {
+    grid-template-areas:
+      "countdown countdown pressure"
+      "countdown countdown humidity"
+      "beer-tile outdoor-temp temperature";
+  }
+}
+
+@media only screen and (max-width: 1000px) {
+  .App {
+    grid-template-areas:
+      "countdown countdown"
+      "countdown countdown"
+      "beer-tile humidity"
+      "pressure temperature";
+  }
 }
 
 .Countdown-box {
