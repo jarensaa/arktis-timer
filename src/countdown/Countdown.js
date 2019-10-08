@@ -17,15 +17,15 @@ function Countdown() {
     <div className="Countdown-box">
       <div>
         <a className="big-text">{DateDiff.inDays(time)}</a>
-        <a className="annotation-text">dager</a>
+        dager
       </div>
       <div>
         <a className="small-text">{DateDiff.inHours(time)}</a>
-        <a className="annotation-text">timer</a>
+        timer
       </div>
       <div>
         <a className="small-text">{DateDiff.inSeconds(time)}</a>
-        <a className="annotation-text">sekunder</a>
+        sekunder
       </div>
     </div>
   );

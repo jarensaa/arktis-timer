@@ -1,0 +1,13 @@
+.box {
+  display: flex;
+  height: 100%;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: white;
+}
+
+.textbox {
+  margin: 0;
+  font-size: calc(10px + 10vmin);
+}
