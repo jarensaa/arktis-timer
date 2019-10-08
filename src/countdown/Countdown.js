@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react";
-import "./App.css";
+import "./Countdown.css";
 
 var dueDate = new Date(2019, 10, 28, 11);
 
-function App() {
+function Countdown() {
   const [time, setTime] = useState(getTimeToDueDate());
 
   useEffect(() => {
@@ -14,20 +14,18 @@ function App() {
   }, []);
 
   return (
-    <div className="App">
-      <div className="App-box">
-        <a>
-          <a className="big-text">{DateDiff.inDays(time)}</a>
-          <a className="annotation-text">dager</a>
-        </a>
-        <a>
-          <a className="small-text">{DateDiff.inHours(time)}</a>
-          <a className="annotation-text">timer</a>
-        </a>
-        <a>
-          <a className="small-text">{DateDiff.inSeconds(time)}</a>
-          <a className="annotation-text">sekunder</a>
-        </a>
+    <div className="Countdown-box">
+      <div>
+        <a className="big-text">{DateDiff.inDays(time)}</a>
+        <a className="annotation-text">dager</a>
+      </div>
+      <div>
+        <a className="small-text">{DateDiff.inHours(time)}</a>
+        <a className="annotation-text">timer</a>
+      </div>
+      <div>
+        <a className="small-text">{DateDiff.inSeconds(time)}</a>
+        <a className="annotation-text">sekunder</a>
       </div>
     </div>
   );
@@ -49,4 +47,4 @@ var DateDiff = {
   }
 };
 
-export default App;
+export default Countdown;
