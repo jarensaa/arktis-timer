@@ -1,13 +1,13 @@
 @import url(https://fonts.googleapis.com/css?family=Comic+Sans+MS);
 
-.Countdown-box{
+.Countdown-box {
   display: flex;
   height: 100%;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   color: white;
-  font-family: 'Comic Sans MS', 'Chalkboard SE', 'Comic Neue', sans-serif;
+  font-family: "Comic Sans MS", "Chalkboard SE", "Comic Neue", sans-serif;
 }
 
 .App-link {

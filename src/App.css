@@ -5,12 +5,24 @@
   display: grid;
   grid-template-columns: 65vw 35vw;
   grid-template-rows: repeat(3, 1fr);
-  grid-template-areas: 
-    "countdown metric"
-    "countdown metric"
-    "countdown metric"
+  grid-template-areas:
+    "countdown temperature"
+    "countdown humidity"
+    "countdown pressure";
 }
 
 .Countdown-box {
   grid-area: countdown;
+}
+
+.temp-tile {
+  grid-area: temperature;
+}
+
+.humidity-tile {
+  grid-area: humidity;
+}
+
+.pressure-tile {
+  grid-area: pressure;
 }
