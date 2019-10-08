@@ -4,7 +4,7 @@ import "./App.css";
 import MqttTile from "./mqttTile/MqttTile";
 import mqtt from "mqtt";
 
-const client = mqtt.connect("mqtt://antarktis.flyktig.no:4200");
+const client = mqtt.connect("mqtts://antarktis.flyktig.no:4200");
 
 function App() {
   return (
