@@ -32,6 +32,10 @@
   grid-area: temperature;
 }
 
+.outside-temp-tile {
+  grid-area: outdoor-temp;
+}
+
 .humidity-tile {
   grid-area: humidity;
 }

@@ -38,6 +38,15 @@ function App() {
         }}
         name="pressure-tile"
       />
+      <MqttTile
+        mqttclient={client}
+        topic="outsidetemp"
+        description="Outside temp"
+        formater={tempString => {
+          return tempString.split(" ")[1] + "°";
+        }}
+        name="outside-temp-tile"
+      />
       <BeerCountdown />
     </div>
   );
