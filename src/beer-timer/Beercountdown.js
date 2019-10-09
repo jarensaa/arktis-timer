@@ -38,7 +38,7 @@ function isBeersaleOpen(timeNow) {
     return hour > 9 && hour < 18;
   }
 
-  return hour > 9 && hour < 20;
+  return hour >= 9 && hour < 20;
 }
 
 function getTimeToBeerSaleChange(timeNow) {
