@@ -14,7 +14,7 @@ function App() {
       <MqttTile
         mqttclient={client}
         topic="temperature"
-        description="Temp"
+        description="Inside temp"
         formater={tempString => {
           return parseInt(tempString.split(" ")[1]) + "°";
         }}
