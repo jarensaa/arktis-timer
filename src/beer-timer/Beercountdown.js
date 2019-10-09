@@ -35,7 +35,7 @@ function isBeersaleOpen(timeNow) {
   }
 
   if (weekDayToday == 6) {
-    return hour > 9 && hour < 18;
+    return hour >= 9 && hour < 18;
   }
 
   return hour >= 9 && hour < 20;
@@ -64,7 +64,7 @@ function getTimeToBeerSaleChange(timeNow) {
       9
     );
 
-    if (timeNow.getHours() > 18) {
+    if (timeNow.getHours() >= 18) {
       beerSaleChangesAtTime.setDate(timeNow.getDate() + 1);
     }
 
