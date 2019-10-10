@@ -8,10 +8,6 @@ const MqttTile = props => {
   const subsciptionTopic = props.topic;
 
   useEffect(() => {
-    client.on("connect", () => {
-      client.subscribe(subsciptionTopic);
-    });
-
     client.on("message", (topic, message) => {
       if (topic == subsciptionTopic) {
         setValue(props.formater(message.toString()));

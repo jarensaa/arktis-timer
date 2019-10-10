@@ -16,11 +16,13 @@
 
 @media only screen and (max-width: 1000px) {
   .App {
+    grid-auto-rows: repeat(5, 25vh);
     grid-template-areas:
       "countdown countdown"
       "countdown countdown"
+      "outdoor-temp temperature"
       "beer-tile humidity"
-      "pressure temperature";
+      "pressure pressure";
   }
 }
 

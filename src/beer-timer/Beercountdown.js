@@ -1,8 +1,6 @@
 import React, { useState, useEffect } from "react";
 import "./Beercountdown.css";
 
-var dueDate = new Date(2019, 10, 28, 11);
-
 function BeerTimer() {
   const [time, setTime] = useState(getTimeToBeerSaleChange(new Date()));
   const [isOpen, setIsOpen] = useState(isBeersaleOpen(new Date()));
@@ -30,11 +28,11 @@ function isBeersaleOpen(timeNow) {
   const weekDayToday = timeNow.getDay();
   const hour = timeNow.getHours();
 
-  if (weekDayToday == 7) {
+  if (weekDayToday === 7) {
     return false;
   }
 
-  if (weekDayToday == 6) {
+  if (weekDayToday === 6) {
     return hour >= 9 && hour < 18;
   }
 
@@ -53,7 +51,7 @@ function getTimeToBeerSaleChange(timeNow) {
       20
     );
 
-    if (weekDayToday == 5) {
+    if (weekDayToday === 5) {
       beerSaleChangesAtTime.setHours(18);
     }
   } else {
@@ -68,11 +66,11 @@ function getTimeToBeerSaleChange(timeNow) {
       beerSaleChangesAtTime.setDate(timeNow.getDate() + 1);
     }
 
-    if (weekDayToday == 5) {
+    if (weekDayToday === 5) {
       beerSaleChangesAtTime.setDate(timeNow.getDate() + 2);
     }
 
-    if (weekDayToday == 6) {
+    if (weekDayToday === 6) {
       beerSaleChangesAtTime.setDate(timeNow.getDate() + 1);
     }
   }

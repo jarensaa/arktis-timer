@@ -7,6 +7,13 @@ import BeerCountdown from "./beer-timer/Beercountdown";
 
 const client = mqtt.connect("mqtts://antarktis.flyktig.no:4200");
 
+client.on("connect", () => {
+  client.subscribe("temperature");
+  client.subscribe("humidity");
+  client.subscribe("pressure");
+  client.subscribe("outsidetemp");
+});
+
 function App() {
   return (
     <div className="App">
