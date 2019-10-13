@@ -2,14 +2,21 @@ import React, { useState, useEffect } from "react";
 import "./Beercountdown.css";
 
 function BeerTimer() {
-  const [time, setTime] = useState(getTimeToBeerSaleChange(new Date()));
-  const [isOpen, setIsOpen] = useState(isBeersaleOpen(new Date()));
+  const [timeAtChange, setTimeAtChange] = useState(() =>
+    getTimeAtBeerSaleChange(new Date())
+  );
+  const [time, setTime] = useState(() => timeAtChange - Date.now());
+  const [isOpen, setIsOpen] = useState(() => isBeersaleOpen(new Date()));
 
   useEffect(() => {
     const interval = setInterval(() => {
-      const today = new Date();
-      setTime(getTimeToBeerSaleChange(today));
-      setIsOpen(isBeersaleOpen(today));
+      const timeNow = Date.now();
+      if (timeNow > timeAtChange) {
+        const today = new Date();
+        setTimeAtChange(getTimeAtBeerSaleChange(today));
+        setIsOpen(isBeersaleOpen(today));
+      }
+      setTime(timeAtChange - timeNow);
     }, 500);
     return () => clearInterval(interval);
   }, []);
@@ -28,7 +35,7 @@ function isBeersaleOpen(timeNow) {
   const weekDayToday = timeNow.getDay();
   const hour = timeNow.getHours();
 
-  if (weekDayToday === 7) {
+  if (weekDayToday === 0) {
     return false;
   }
 
@@ -39,7 +46,8 @@ function isBeersaleOpen(timeNow) {
   return hour >= 9 && hour < 20;
 }
 
-function getTimeToBeerSaleChange(timeNow) {
+function getTimeAtBeerSaleChange(timeNow) {
+  console.log("redundant instance");
   const weekDayToday = timeNow.getDay();
   var beerSaleChangesAtTime;
 
@@ -69,13 +77,8 @@ function getTimeToBeerSaleChange(timeNow) {
     if (weekDayToday === 5) {
       beerSaleChangesAtTime.setDate(timeNow.getDate() + 2);
     }
-
-    if (weekDayToday === 6) {
-      beerSaleChangesAtTime.setDate(timeNow.getDate() + 1);
-    }
   }
-
-  return beerSaleChangesAtTime - timeNow;
+  return beerSaleChangesAtTime;
 }
 
 var Time = {
