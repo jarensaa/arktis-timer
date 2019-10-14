@@ -5,27 +5,35 @@ function BeerTimer() {
   const [timeAtChange, setTimeAtChange] = useState(() =>
     getTimeAtBeerSaleChange(new Date())
   );
-  const [time, setTime] = useState(() => timeAtChange - Date.now());
+  const [remainingTime, setRemainingTime] = useState(timeAtChange - Date.now());
   const [isOpen, setIsOpen] = useState(() => isBeersaleOpen(new Date()));
+  const [currentTime, setCurrentTime] = useState(() => Date.now());
 
   useEffect(() => {
     const interval = setInterval(() => {
-      const timeNow = Date.now();
-      if (timeNow > timeAtChange) {
-        const today = new Date();
-        setTimeAtChange(getTimeAtBeerSaleChange(today));
-        setIsOpen(isBeersaleOpen(today));
-      }
-      setTime(timeAtChange - timeNow);
+      setCurrentTime(Date.now());
     }, 500);
     return () => clearInterval(interval);
   }, []);
+
+  useEffect(() => {
+    if (currentTime > timeAtChange) {
+      setTimeAtChange(getTimeAtBeerSaleChange(new Date()));
+    } else {
+      setRemainingTime(timeAtChange - currentTime);
+    }
+  }, [currentTime, timeAtChange]);
+
+  useEffect(() => {
+    setRemainingTime(timeAtChange - Date.now());
+    setIsOpen(isBeersaleOpen(new Date()));
+  }, [timeAtChange]);
 
   return (
     <div className="beer-timer box">
       <div>
         <div>Ølsalget {isOpen ? "stenger" : "åpner"} om</div>
-        <div className="beer-big-text">{Time.formated(time)}</div>
+        <div className="beer-big-text">{Time.formated(remainingTime)}</div>
       </div>
     </div>
   );
@@ -47,7 +55,6 @@ function isBeersaleOpen(timeNow) {
 }
 
 function getTimeAtBeerSaleChange(timeNow) {
-  console.log("redundant instance");
   const weekDayToday = timeNow.getDay();
   var beerSaleChangesAtTime;
 
