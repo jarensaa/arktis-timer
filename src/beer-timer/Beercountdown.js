@@ -66,7 +66,7 @@ function getTimeAtBeerSaleChange(timeNow) {
       20
     );
 
-    if (weekDayToday === 5) {
+    if (weekDayToday === 6) {
       beerSaleChangesAtTime.setHours(18);
     }
   } else {
@@ -81,7 +81,7 @@ function getTimeAtBeerSaleChange(timeNow) {
       beerSaleChangesAtTime.setDate(timeNow.getDate() + 1);
     }
 
-    if (weekDayToday === 5) {
+    if (weekDayToday === 6) {
       beerSaleChangesAtTime.setDate(timeNow.getDate() + 2);
     }
   }
