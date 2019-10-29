@@ -8,8 +8,13 @@ function Countdown() {
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setTime(getTimeToDueDate());
-    }, 500);
+      const prevHour = DateDiff.inHours(time);
+      const nextHour = DateDiff.inHours(dueDate - Date.now());
+
+      if (prevHour != nextHour) {
+        setTime(getTimeToDueDate());
+      }
+    }, 1000);
     return () => clearInterval(interval);
   }, []);
 
@@ -17,15 +22,11 @@ function Countdown() {
     <div className="Countdown-box">
       <div>
         <a className="big-text">{DateDiff.inDays(time)}</a>
-        dager
+        &nbsp;dager
       </div>
       <div>
         <a className="small-text">{DateDiff.inHours(time)}</a>
-        timer
-      </div>
-      <div>
-        <a className="small-text">{DateDiff.inSeconds(time)}</a>
-        sekunder
+        &nbsp;timer
       </div>
     </div>
   );
