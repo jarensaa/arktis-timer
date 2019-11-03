@@ -77,11 +77,11 @@ function getTimeAtBeerSaleChange(timeNow) {
       9
     );
 
-    if (timeNow.getHours() >= 18) {
+    if (timeNow.getHours() >= 18 || weekDayToday == 0) {
       beerSaleChangesAtTime.setDate(timeNow.getDate() + 1);
     }
 
-    if (weekDayToday === 6) {
+    if (timeNow.getHours() >= 18 && weekDayToday === 6) {
       beerSaleChangesAtTime.setDate(timeNow.getDate() + 2);
     }
   }
