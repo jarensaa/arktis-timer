@@ -1,8 +1,11 @@
+@import url("https://fonts.googleapis.com/css?family=Delius&display=swap");
+
 .App {
   background-color: #282c34;
   min-height: 100vh;
   width: 100vw;
   display: grid;
+  font-family: "Delius", cursive;
 }
 
 @media only screen and (min-width: 1000px) {
