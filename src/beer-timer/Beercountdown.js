@@ -5,24 +5,21 @@ function BeerTimer() {
   const [timeAtChange, setTimeAtChange] = useState(() =>
     getTimeAtBeerSaleChange(new Date())
   );
-  const [remainingTime, setRemainingTime] = useState(timeAtChange - Date.now());
+  const [remainingTime, setRemainingTime] = useState(
+    () => timeAtChange - Date.now()
+  );
   const [isOpen, setIsOpen] = useState(() => isBeersaleOpen(new Date()));
-  const [currentTime, setCurrentTime] = useState(() => Date.now());
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setCurrentTime(Date.now());
-    }, 500);
+      if (Date.now() > timeAtChange) {
+        setTimeAtChange(getTimeAtBeerSaleChange(new Date()));
+      } else {
+        setRemainingTime(timeAtChange - Date.now());
+      }
+    }, 1000);
     return () => clearInterval(interval);
   }, []);
-
-  useEffect(() => {
-    if (currentTime > timeAtChange) {
-      setTimeAtChange(getTimeAtBeerSaleChange(new Date()));
-    } else {
-      setRemainingTime(timeAtChange - currentTime);
-    }
-  }, [currentTime, timeAtChange]);
 
   useEffect(() => {
     setRemainingTime(timeAtChange - Date.now());
