@@ -9,7 +9,7 @@ const client = mqtt.connect("mqtts://antarktis.flyktig.no:4200");
 
 client.on("connect", () => {
   client.subscribe("temperature");
-  client.subscribe("humidity");
+  client.subscribe("finn");
   client.subscribe("pressure");
   client.subscribe("outsidetemp");
 });
@@ -29,12 +29,12 @@ function App() {
       />
       <MqttTile
         mqttclient={client}
-        topic="humidity"
-        description="Humidity"
+        topic="finn"
+        description="Is Finn present?"
         formater={tempString => {
-          return parseInt(tempString.split(" ")[1]);
+          return tempString.split(" ")[1];
         }}
-        name="humidity-tile"
+        name="finn-tile"
       />
       <MqttTile
         mqttclient={client}

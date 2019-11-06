@@ -12,8 +12,8 @@
   .App {
     grid-template-areas:
       "countdown countdown pressure"
-      "countdown countdown humidity"
-      "beer-tile outdoor-temp temperature";
+      "countdown countdown temperature"
+      "beer-tile finn outdoor-temp ";
   }
 }
 
@@ -24,8 +24,8 @@
       "countdown countdown"
       "countdown countdown"
       "outdoor-temp temperature"
-      "beer-tile humidity"
-      "pressure pressure";
+      "pressure finn"
+      "beer-tile beer-tile";
   }
 }
 
@@ -47,4 +47,8 @@
 
 .pressure-tile {
   grid-area: pressure;
+}
+
+.finn-tile {
+  grid-area: finn;
 }
