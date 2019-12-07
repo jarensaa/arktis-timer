@@ -54,7 +54,6 @@ function App() {
         }}
         name="outside-temp-tile"
       />
-      <BeerCountdown />
     </div>
   );
 }
