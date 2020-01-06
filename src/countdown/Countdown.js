@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import "./Countdown.css";
 
-var dueDate = new Date(2019, 11, 19, 16);
+var dueDate = new Date(2020, 6, 2, 9);
 
 function Countdown() {
   const [time, setTime] = useState(getTimeToDueDate());
